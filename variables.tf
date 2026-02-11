@@ -29,7 +29,7 @@ EOT
     arguments                              = optional(list(string))
     commands                               = optional(list(string))
     environment_variables                  = optional(map(string))
-    instance_count                         = optional(number, 1)
+    instance_count                         = optional(number) # Default: 1
     language_framework                     = optional(string)
     quota = optional(object({
       cpu    = optional(string)
