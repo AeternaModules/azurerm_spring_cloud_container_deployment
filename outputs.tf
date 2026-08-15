@@ -40,7 +40,7 @@ output "spring_cloud_container_deployments_name" {
 }
 output "spring_cloud_container_deployments_quota" {
   description = "Map of quota values across all spring_cloud_container_deployments, keyed the same as var.spring_cloud_container_deployments"
-  value       = { for k, v in azurerm_spring_cloud_container_deployment.spring_cloud_container_deployments : k => v.quota if v.quota != null && length(v.quota) > 0 }
+  value       = { for k, v in azurerm_spring_cloud_container_deployment.spring_cloud_container_deployments : k => one(v.quota) if v.quota != null && length(v.quota) > 0 }
 }
 output "spring_cloud_container_deployments_server" {
   description = "Map of server values across all spring_cloud_container_deployments, keyed the same as var.spring_cloud_container_deployments"
